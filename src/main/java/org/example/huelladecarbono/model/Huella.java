@@ -26,7 +26,7 @@ public class Huella {
     private Actividad idActividad;
 
     @Column(name = "valor", nullable = false, precision = 10, scale = 2)
-    private BigDecimal valor;
+    private String valor;
 
     @Column(name = "unidad", nullable = false, length = 20)
     private String unidad;
@@ -58,11 +58,11 @@ public class Huella {
         this.idActividad = idActividad;
     }
 
-    public BigDecimal getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 
