@@ -44,12 +44,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="522.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
       <children>
-            <TableView fx:id="tablaHuellas" layoutX="110.0" layoutY="79.0" prefHeight="276.0" prefWidth="422.0">
+            <TableView fx:id="tablaHuellas" layoutX="74.0" layoutY="80.0" prefHeight="276.0" prefWidth="493.0" styleClass="table-view-modern" stylesheets="@EstilosHuella.css">
               <columns>
                 <TableColumn fx:id="colActividad" prefWidth="208.0" text="Actividad" />
                 <TableColumn fx:id="colValor" prefWidth="58.0" text="Valor" />
                   <TableColumn fx:id="colUnidad" prefWidth="63.0" text="Unidad" />
-                  <TableColumn fx:id="colFecha" prefWidth="91.0" text="Fecha" />
+                  <TableColumn fx:id="colFecha" prefWidth="161.60000000000002" text="Fecha" />
               </columns>
             </TableView>
             <Label layoutX="237.0" layoutY="30.0" text="Mis Huellas">

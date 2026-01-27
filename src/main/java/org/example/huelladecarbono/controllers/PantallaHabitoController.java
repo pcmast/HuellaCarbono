@@ -43,7 +43,7 @@ public class PantallaHabitoController {
         HabitoService habitoService = new HabitoService();
         ActividadService actividadService = new ActividadService();
 
-        List<Habito> huellas = habitoService.getHabito();
+        List<Habito> habitos = habitoService.getHabitosPorUsuario(UsuarioActualController.getInstance().getUsuario());
         List<Actividad> actividades = actividadService.getActividades();
 
 
@@ -57,7 +57,7 @@ public class PantallaHabitoController {
         colValor.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getFrecuencia())));
         colUnidad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTipo()));
         colFecha.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getUltimaFecha()));
-        tablaHabito.getItems().setAll(huellas);
+        tablaHabito.getItems().setAll(habitos);
     }
 
 
@@ -144,7 +144,7 @@ public class PantallaHabitoController {
         HabitoService habitoService = new HabitoService();
         ActividadService actividadService = new ActividadService();
 
-        List<Habito> habitos = habitoService.getHabito();
+        List<Habito> habitos = habitoService.getHabitosPorUsuario(UsuarioActualController.getInstance().getUsuario());
         List<Actividad> actividades = actividadService.getActividades();
 
         Map<Integer, String> actividadPorId = actividades.stream().collect(Collectors.toMap(Actividad::getId, Actividad::getNombre));

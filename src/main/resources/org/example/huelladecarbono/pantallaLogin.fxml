@@ -60,12 +60,12 @@
       
                       <Label text="Email" />
       
-                      <TextField fx:id="txtEmail" prefWidth="260.0" promptText="Introduce tu email" styleClass="text-field" />
+                      <TextField fx:id="txtEmail" prefWidth="260.0" promptText="Introduce tu email" styleClass="text-area-modern" />
       
       
                       <Label text="Contraseña" />
       
-                      <PasswordField fx:id="txtPassword" prefWidth="260.0" promptText="Introduce tu contraseña" styleClass="password-field" />
+                      <PasswordField fx:id="txtPassword" prefWidth="260.0" promptText="Introduce tu contraseña" styleClass="text-area-modern" />
       
                       
                       <Button onAction="#iniciarSesion" prefWidth="260.0" styleClass="btn-primary" text="Entrar" />

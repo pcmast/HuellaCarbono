@@ -45,9 +45,10 @@ public class PantallaRegistroController {
                         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantallaLogin.fxml"));
                         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                         Scene scene = null;
-                        scene = new Scene(fxmlLoader.load());
+                        scene = new Scene(fxmlLoader.load(), 640, 478);
                         stage.setTitle("HuellaCarbono");
                         stage.setScene(scene);
+                        stage.centerOnScreen();
                         stage.setResizable(false);
                         //stage.initModality(Modality.WINDOW_MODAL); Pone la pantalla como padre
                         stage.show();
@@ -68,10 +69,11 @@ public class PantallaRegistroController {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantallaLogin.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = null;
-            scene = new Scene(fxmlLoader.load());
+            scene = new Scene(fxmlLoader.load(), 640, 478);
             stage.setTitle("HuellaCarbono");
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.centerOnScreen();
             //stage.initModality(Modality.WINDOW_MODAL); Pone la pantalla como padre
             stage.show();
         } catch (IOException e) {

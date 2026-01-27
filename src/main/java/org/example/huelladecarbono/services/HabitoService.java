@@ -4,6 +4,7 @@ import org.example.huelladecarbono.DAO.HabitoDAO;
 import org.example.huelladecarbono.DAO.HuellaDAO;
 import org.example.huelladecarbono.model.Habito;
 import org.example.huelladecarbono.model.Huella;
+import org.example.huelladecarbono.model.Usuario;
 
 import java.util.List;
 
@@ -23,5 +24,8 @@ public class HabitoService {
     }
     public void eliminarHabito(Habito habito) {
         habitoDAO.eliminarHabito(habito);
+    }
+    public List<Habito> getHabitosPorUsuario(Usuario usuario) {
+        return habitoDAO.getHabitosPorUsuario(usuario);
     }
 }

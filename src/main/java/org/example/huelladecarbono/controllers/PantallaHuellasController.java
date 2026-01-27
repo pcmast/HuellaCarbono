@@ -45,7 +45,7 @@ public class PantallaHuellasController {
         HuellaService huellaService = new HuellaService();
         ActividadService actividadService = new ActividadService();
 
-        List<Huella> huellas = huellaService.getHuellas();
+        List<Huella> huellas = huellaService.getHuellasPorUsuario(UsuarioActualController.getInstance().getUsuario());
         List<Actividad> actividades = actividadService.getActividades();
 
 
@@ -115,7 +115,7 @@ public class PantallaHuellasController {
         HuellaService huellaService = new HuellaService();
         ActividadService actividadService = new ActividadService();
 
-        List<Huella> huellas = huellaService.getHuellas();
+        List<Huella> huellas = huellaService.getHuellasPorUsuario(UsuarioActualController.getInstance().getUsuario());
         List<Actividad> actividades = actividadService.getActividades();
 
         Map<Integer, String> actividadPorId = actividades.stream()

@@ -5,6 +5,7 @@ import org.example.huelladecarbono.DAO.UsuarioDAO;
 import org.example.huelladecarbono.model.Huella;
 import org.example.huelladecarbono.model.Usuario;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class HuellaService {
@@ -23,5 +24,18 @@ public class HuellaService {
     public void eliminarHuella(Huella huella){
         huellaDAO.eliminarHuella(huella);
     }
+    public List<Huella> getHuellasPorUsuario(Usuario usuario) {
+        return  huellaDAO.getHuellasPorUsuario(usuario);
+    }
+    public List<Huella> getHuellasPorMes(Usuario usuario, int mes, int anio) {
+        return huellaDAO.getHuellasMes(usuario, mes, anio);
+    }
+    public List<Huella> getHuellasPorDia(Usuario usuario, LocalDate fecha) {
+        return huellaDAO.getHuellasDia(usuario, fecha);
+    }
+    public List<Huella> getHuellasAnio(Usuario usuario, int anio){
+        return huellaDAO.getHuellasAnio(usuario, anio);
+    }
+
 
 }

@@ -32,44 +32,32 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="555.0" prefWidth="713.0" stylesheets="@EstilosHuella.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.huelladecarbono.controllers.PantallaRegistroController">
-    <AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="431.0" prefWidth="639.0" stylesheets="@EstiloImpacto.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.huelladecarbono.controllers.PantallaImpactoController">
+    <children>
 
-        <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="417.0" prefWidth="669.0" VBox.vgrow="ALWAYS">
 
-            <VBox layoutX="237.0" layoutY="65.0" prefWidth="240.0" spacing="15" styleClass="card">
+            <Label fx:id="lblImpactoTotal" layoutX="20.0" layoutY="10.0" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Impacto total del mes: -- kg CO₂" />
 
-                <Label styleClass="title" text="Registro de Usuario">
-                    <font>
-                        <Font size="22.0" />
-                    </font>
-                </Label>
+            <TableView fx:id="tablaImpacto" layoutX="14.0" layoutY="96.0" prefHeight="300.0" prefWidth="600.0" styleClass="table-view-modern">
+                <columns>
+                    <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+                    <TableColumn fx:id="colActividad" prefWidth="200" text="Actividad" />
+                    <TableColumn fx:id="colCategoria" prefWidth="110.0" text="Categoría" />
+                    <TableColumn fx:id="colValor" prefWidth="91.0" text="Valor" />
+                    <TableColumn fx:id="colImpacto" prefWidth="78.0" text="Impacto" />
+                </columns>
+            </TableView>
+         <ComboBox fx:id="filtroImpacto" layoutX="453.0" layoutY="14.0" prefWidth="150.0" promptText="Filtro Fecha" />
 
-                <Label text="Nombre" />
-                <TextField fx:id="txtNombre" promptText="Introduce tu nombre" styleClass="text-area-modern" />
+        </AnchorPane>
 
-
-                <Label text="Email" />
-                <TextField fx:id="txtEmail" promptText="Introduce tu email" styleClass="text-area-modern" />
-
-                <Label text="Contraseña" />
-                <PasswordField fx:id="txtPassword" promptText="Introduce tu contraseña" styleClass="text-area-modern" />
-
-                <Button onAction="#registrarUsuario" prefWidth="200" styleClass="btn-primary" text="Registrarse" />
-
-                <Button onAction="#volverLogin" prefWidth="200" styleClass="btn-secondary" text="Volver al login" />
-            <Label fx:id="datosIncorrectos" textAlignment="CENTER" textFill="RED" />
-
-            </VBox>
-
-        </children>
-    </AnchorPane>
+    </children>
 </VBox>

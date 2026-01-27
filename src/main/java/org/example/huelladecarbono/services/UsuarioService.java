@@ -14,4 +14,7 @@ public class UsuarioService {
     public boolean addUsuario(Usuario usuario) {
         return usuarioDAO.addUsuario(usuario);
     }
+    public boolean updateUsuario(Usuario usuario) {
+        return usuarioDAO.updateUsuario(usuario);
+    }
 }

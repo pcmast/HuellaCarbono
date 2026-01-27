@@ -44,7 +44,7 @@
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="522.0" prefWidth="640.0">
          <children>
-            <TableView fx:id="tablaHabito" layoutX="67.0" layoutY="79.0" prefHeight="276.0" prefWidth="520.0">
+            <TableView fx:id="tablaHabito" layoutX="67.0" layoutY="79.0" prefHeight="276.0" prefWidth="520.0" styleClass="table-view-modern" stylesheets="@EstilosHuella.css">
                <columns>
                   <TableColumn fx:id="colActividad" prefWidth="208.0" text="Actividad" />
                   <TableColumn fx:id="colValor" prefWidth="98.0" text="Frecuencia" />

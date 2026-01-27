@@ -40,36 +40,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.huelladecarbono.controllers.PantallaPerfilController">
+<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@EstiloPerfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.huelladecarbono.controllers.PantallaPerfilController">
     <children>
 
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
 
                 <Label layoutX="50.0" layoutY="80.0" text="Nombre:" />
-                <TextField fx:id="txtNombre" layoutX="150.0" layoutY="75.0" />
+                <TextField fx:id="txtNombre" layoutX="150.0" layoutY="75.0" promptText="Nombre:" />
 
 
                 <Label layoutX="50.0" layoutY="120.0" text="Email:" />
-                <TextField fx:id="txtEmail" layoutX="150.0" layoutY="115.0" />
+                <TextField fx:id="txtEmail" layoutX="150.0" layoutY="115.0" promptText="Email:" />
 
                 <Label layoutX="50.0" layoutY="160.0" text="Contraseña:" />
-                <PasswordField fx:id="txtPassword" layoutX="150.0" layoutY="155.0" />
+                <PasswordField fx:id="txtPassword" layoutX="150.0" layoutY="155.0" promptText="Contraseña Nueva:" />
 
 
                 <Label layoutX="50.0" layoutY="200.0" text="Fecha Registro:" />
 
 
-                <Button layoutX="150.0" layoutY="250.0" mnemonicParsing="false" onAction="#guardarCambios" text="Guardar Cambios" />
+                <Button layoutX="139.0" layoutY="250.0" mnemonicParsing="false" onAction="#guardarCambios" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Guardar Cambios" />
 
 
                 <Label fx:id="lblMensaje" layoutX="150.0" layoutY="290.0" textFill="red" />
             <Label fx:id="fechaRegistro" layoutX="150.0" layoutY="200.0" text="Label" />
-            <Label layoutX="247.0" layoutY="14.0" text="Mi Perfil">
+            <Label layoutX="223.0" styleClass="title-label" text="Mi Perfil">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
+            <Button layoutX="355.0" layoutY="250.0" mnemonicParsing="false" onAction="#probarContra" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Probar Contraseña" />
+            <PasswordField fx:id="txtProbarPassword" layoutX="354.0" layoutY="200.0" promptText="Contraseña:" />
             </children>
         </AnchorPane>
     </children>

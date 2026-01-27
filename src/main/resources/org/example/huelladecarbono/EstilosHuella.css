@@ -1,29 +1,91 @@
+/* ================== ROOT ================== */
 .root {
     -fx-background-color: linear-gradient(to bottom right, #e8f5e9, #ffffff);
 }
 
+/* ================== CARDS ================== */
 .card {
     -fx-background-color: white;
     -fx-padding: 25;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 6,0,0,3);
 }
 
+/* Hover ligero en cards */
+.card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 8,0,0,4);
+    -fx-translate-y: -2;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* ================== TITULOS Y LABELS ================== */
 .title {
-    -fx-text-fill: #2e7d32;
+    -fx-text-fill: #1b5e20;
     -fx-font-weight: bold;
+    -fx-font-size: 20px;
 }
 
 .label {
-    -fx-font-size: 12px;
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 14px;
 }
 
-.text-field, .password-field {
-    -fx-background-radius: 5;
-    -fx-border-radius: 5;
+/* Labels específicos de recomendaciones */
+#lblRecomendacion1,
+#lblRecomendacion2,
+#lblRecomendacion3 {
+    -fx-padding: 4 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: #424242;
 }
 
+/* Labels centrales */
+#lblUsuario {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2e7d32;
+}
+
+#lblHuellaMes,
+#lblCategoriaMayor {
+    -fx-font-size: 14px;
+    -fx-text-fill: #424242;
+}
+
+/* Etiquetas grandes como “Huella de Carbono” */
+.anchor-label {
+    -fx-font-size: 22px;
+    -fx-text-fill: #1b5e20;
+    -fx-font-weight: bold;
+}
+
+/* ================== CAMPOS DE TEXTO ================== */
+.text-field,
+.password-field,
+.text-area-modern {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+.text-area-modern {
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+    -fx-border-color: #66bb6a;
+    -fx-border-width: 2;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #9e9e9e;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4,0,0,2);
+    -fx-focus-color: #43a047;
+    -fx-faint-focus-color: rgba(67,160,71,0.3);
+}
+
+.text-area-modern:hover {
+    -fx-border-color: #43a047;
+}
+
+/* ================== BOTONES ================== */
 .btn-primary {
     -fx-background-color: #2e7d32;
     -fx-text-fill: white;
@@ -46,7 +108,7 @@
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-padding: 10 20 10 20;
+    -fx-padding: 10 20;
     -fx-background-radius: 20;
     -fx-border-radius: 20;
     -fx-cursor: hand;
@@ -55,4 +117,111 @@
 
 .boton-verde-grande:hover {
     -fx-background-color: #218838;
+}
+
+/* ================== MENU SUPERIOR ================== */
+.menu-bar {
+    -fx-background-color: linear-gradient(to bottom, #81C784, #2E7D32); /* degradado más legible */
+    -fx-padding: 5 10;
+    -fx-border-color: #1B5E20;
+    -fx-border-width: 0 0 3px 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4,0,0,2);
+}
+
+/* Menús principales (Usuario, Gestión, Análisis) */
+.menu-bar .menu {
+    -fx-text-fill: white; /* texto blanco legible */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-padding: 5 20;
+    -fx-background-radius: 5;
+}
+
+/* Hover sobre menú */
+.menu-bar .menu:hover {
+    -fx-background-color: rgba(255,255,255,0.25);
+    -fx-text-fill: white;
+}
+
+/* Items del menú desplegable */
+.menu-item {
+    -fx-background-color: white;
+    -fx-text-fill: #2E7D32;
+    -fx-padding: 6 20;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 2,0,0,1);
+}
+
+/* Hover sobre menu item */
+.menu-item:hover {
+    -fx-background-color: #43A047;
+    -fx-text-fill: white;
+}
+
+/* Separadores */
+.separator-menu-item {
+    -fx-background-color: #ddd;
+    -fx-padding: 0;
+}
+
+/* ================== CONTENEDOR CENTRAL ================== */
+.center-container {
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table-view-modern {
+    -fx-background-color: #f4f6f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-table-cell-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4,0,0,2);
+}
+
+/* Encabezados */
+.table-view-modern .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #66BB6A, #43A047);
+    -fx-border-color: transparent;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.table-view-modern .column-header,
+.table-view-modern .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Filas */
+.table-view-modern .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 0;
+}
+
+.table-view-modern .table-row-cell:hover {
+    -fx-background-color: #e8f5e9;
+}
+
+/* Celdas */
+.table-view-modern .table-cell {
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
 }

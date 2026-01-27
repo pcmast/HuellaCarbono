@@ -1,0 +1,72 @@
+/* ================== LABEL IMPACTO ================== */
+#lblImpactoTotal {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1b5e20;
+}
+
+/* ================== TABLEVIEW MODERNA ================== */
+.table-view-modern {
+    -fx-background-color: #f4f6f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 12;         /* Borde redondeado de la tabla */
+    -fx-background-radius: 12;     /* Fondo redondeado */
+    -fx-table-cell-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4,0,0,2);
+}
+
+/* Encabezados */
+.table-view-modern .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #66BB6A, #43A047);
+    -fx-border-color: transparent;
+    -fx-background-radius: 12 12 0 0; /* Bordes redondeados solo en la parte superior */
+}
+
+.table-view-modern .column-header,
+.table-view-modern .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Filas */
+.table-view-modern .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-radius: 0 0 12 12; /* Bordes redondeados inferiores de cada fila final */
+}
+
+.table-view-modern .table-row-cell:last-child {
+    -fx-background-radius: 0 0 12 12; /* Última fila con esquinas inferiores redondeadas */
+}
+
+.table-view-modern .table-row-cell:hover {
+    -fx-background-color: #e8f5e9;
+}
+
+/* Celdas */
+.table-view-modern .table-cell {
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+    -fx-background-radius: 12;  /* Bordes redondeados de celdas */
+    -fx-border-radius: 12;
+}
+
+/* ================== COMBOBOX ================== */
+.combo-box {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #66BB6A;
+    -fx-border-width: 2;
+    -fx-padding: 4 10;
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+    -fx-focus-color: #43A047;
+    -fx-faint-focus-color: rgba(67,160,71,0.3);
+}
+
+.combo-box:hover {
+    -fx-border-color: #43A047;
+}
