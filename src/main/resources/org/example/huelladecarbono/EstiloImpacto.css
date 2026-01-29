@@ -34,7 +34,7 @@
     -fx-background-color: white;
     -fx-border-color: #e0e0e0;
     -fx-border-width: 0 0 1 0;
-    -fx-background-radius: 0 0 12 12; /* Bordes redondeados inferiores de cada fila final */
+    -fx-background-radius: 0 0 12 12;
 }
 
 .table-view-modern .table-row-cell:last-child {

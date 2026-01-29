@@ -15,6 +15,7 @@ import org.example.huelladecarbono.services.HuellaService;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URL;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -48,7 +49,7 @@ public class PantallaImpactoController {
     public void initialize() {
         configurarColumnas();
         cargarImpactoMensual();
-        filtroImpacto.getItems().addAll("DIARIO", "MENSUAL", "ANUAL");
+        filtroImpacto.getItems().addAll("DIARIO", "MENSUAL", "ANUAL", "SEMANAL");
         filtroImpacto.setOnAction(e -> {
             String seleccion = filtroImpacto.getValue();
 
@@ -62,11 +63,14 @@ public class PantallaImpactoController {
                 case "ANUAL":
                     cargarImpactoAnual();
                     break;
+                case "SEMANAL":
+                    cargarSemanal();
+                    break;
             }
         });
     }
 
-    private void configurarColumnas() {
+    public void configurarColumnas() {
         colFecha.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFecha().toString()));
         colActividad.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIdActividad().getNombre()));
         colCategoria.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIdActividad().getIdCategoria().getNombre()));
@@ -76,14 +80,37 @@ public class PantallaImpactoController {
             BigDecimal valor = new BigDecimal(h.getValor());
             BigDecimal factor = h.getIdActividad().getIdCategoria().getFactorEmision();
             BigDecimal impacto = valor.multiply(factor).setScale(2, RoundingMode.HALF_UP);
-
             return new SimpleStringProperty(impacto.toString());
         });
     }
 
-    private void cargarImpactoMensual() {
+    public void cargarSemanal() {
 
-        HuellaService huellaService =  new HuellaService();
+        HuellaService huellaService = new HuellaService();
+
+        LocalDate hoy = LocalDate.now();
+        LocalDate inicioSemana = hoy.with(DayOfWeek.MONDAY);
+        LocalDate finSemana = hoy.with(DayOfWeek.SUNDAY);
+
+        List<Huella> huellas = huellaService.getHuellasSemana(UsuarioActualController.getInstance().getUsuario(), inicioSemana, finSemana);
+
+        ObservableList<Huella> datos = FXCollections.observableArrayList(huellas);
+        tablaImpacto.setItems(datos);
+
+        BigDecimal impactoSemanal = BigDecimal.ZERO;
+
+        for (Huella h : huellas) {
+            BigDecimal valor = new BigDecimal(h.getValor());
+            BigDecimal factor = h.getIdActividad().getIdCategoria().getFactorEmision();
+            impactoSemanal = impactoSemanal.add(valor.multiply(factor));
+        }
+
+        lblImpactoTotal.setText(String.format("Impacto total de la semana: %.2f kg CO₂", impactoSemanal));
+    }
+
+    public void cargarImpactoMensual() {
+
+        HuellaService huellaService = new HuellaService();
 
         LocalDate hoy = LocalDate.now();
         int mes = hoy.getMonthValue();
@@ -104,9 +131,9 @@ public class PantallaImpactoController {
         lblImpactoTotal.setText(String.format("Impacto total del mes: %.2f kg CO₂", impactoMensual));
     }
 
-    private void cargarImpactoDiario() {
+    public void cargarImpactoDiario() {
 
-        HuellaService huellaService =  new HuellaService();
+        HuellaService huellaService = new HuellaService();
         LocalDate hoy = LocalDate.now();
 
         List<Huella> huellas = huellaService.getHuellasPorDia(UsuarioActualController.getInstance().getUsuario(), hoy);
@@ -126,9 +153,10 @@ public class PantallaImpactoController {
         impactoDiario = impactoDiario.setScale(2, RoundingMode.HALF_UP);
         lblImpactoTotal.setText(String.format("Impacto total de hoy: %.2f kg CO₂", impactoDiario.doubleValue()));
     }
-    private void cargarImpactoAnual() {
 
-        HuellaService huellaService =  new HuellaService();
+    public void cargarImpactoAnual() {
+
+        HuellaService huellaService = new HuellaService();
         int anio = LocalDate.now().getYear();
 
         List<Huella> huellas = huellaService.getHuellasAnio(UsuarioActualController.getInstance().getUsuario(), anio);

@@ -36,6 +36,9 @@ public class HuellaService {
     public List<Huella> getHuellasAnio(Usuario usuario, int anio){
         return huellaDAO.getHuellasAnio(usuario, anio);
     }
+    public List<Huella> getHuellasSemana(Usuario usuario, LocalDate inicio, LocalDate fin) {
+        return huellaDAO.getHuellasSemana(usuario, inicio, fin);
+    }
 
 
 }

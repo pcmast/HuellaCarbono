@@ -131,5 +131,21 @@ public class HuellaDAO {
                     .list();
         }
     }
+    public List<Huella> getHuellasSemana(Usuario usuario, LocalDate inicio, LocalDate fin) {
+        try (Session session = Connection.getInstance().getSession()) {
+            return session.createQuery(
+                            "SELECT h FROM Huella h " +
+                                    "JOIN FETCH h.idActividad a " +
+                                    "JOIN FETCH a.idCategoria " +
+                                    "WHERE h.idUsuario.id = :usuarioId " +
+                                    "AND h.fecha BETWEEN :inicio AND :fin",
+                            Huella.class
+                    )
+                    .setParameter("usuarioId", usuario.getId())
+                    .setParameter("inicio", inicio)
+                    .setParameter("fin", fin)
+                    .list();
+        }
+    }
 
 }
