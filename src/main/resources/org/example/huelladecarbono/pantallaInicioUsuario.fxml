@@ -85,8 +85,6 @@
 
                     <Label fx:id="lblHuellaMes" text="Huella total este mes: -- kg CO₂" />
 
-                    <Label fx:id="lblCategoriaMayor" text="Categoría con mayor impacto: --" />
-
                 </VBox>
 
                 <!-- CARD RECOMENDACIONES -->

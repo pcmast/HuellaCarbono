@@ -48,10 +48,8 @@ public class UsuarioDAO {
                 existingUser.setEmail(usuario.getEmail());
                 existingUser.setContraseña(usuario.getContraseña());
 
-                session.merge(existingUser); // Actualiza el objeto
+                session.merge(existingUser);
                 updated = true;
-            } else {
-                System.out.println("Usuario con ID " + usuario.getId() + " no existe.");
             }
         } catch (Exception ex) {
             if (tx != null) {

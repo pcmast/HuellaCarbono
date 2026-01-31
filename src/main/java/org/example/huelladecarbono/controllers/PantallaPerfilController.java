@@ -17,9 +17,9 @@ public class PantallaPerfilController {
     private boolean usuarioActualizado = false;
 
     /*
-    * Metodo que al inicializar el controlador coge los datos del usuarioactual y los muestra en el perfil en el caso
-    * de que se quiera modificar esos datos
-    * */
+     * Metodo que al inicializar el controlador coge los datos del usuarioactual y los muestra en el perfil en el caso
+     * de que se quiera modificar esos datos
+     * */
     public void initialize() {
         txtNombre.setText(UsuarioActualController.getInstance().getUsuario().getNombre());
         txtEmail.setText(UsuarioActualController.getInstance().getUsuario().getEmail());
@@ -39,18 +39,18 @@ public class PantallaPerfilController {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
-        Usuario usuario = new Usuario();
-        usuario.setId(UsuarioActualController.getInstance().getUsuario().getId());
-        usuario.setNombre(txtNombre.getText());
-        usuario.setEmail(txtEmail.getText());
-        if (!txtPassword.getText().isEmpty()) {
-            usuario.setContraseña(txtPassword.getText());
-        }else {
-            usuario.setContraseña(UsuarioActualController.getInstance().getUsuario().getContraseña());
-        }
-        usuario.setFechaRegistro(UsuarioActualController.getInstance().getUsuario().getFechaRegistro());
-        UsuarioService usuarioService = new UsuarioService();
-        usuarioService.updateUsuario(usuario);
+            Usuario usuario = UsuarioActualController.getInstance().getUsuario();
+            usuario.setId(UsuarioActualController.getInstance().getUsuario().getId());
+            usuario.setNombre(txtNombre.getText());
+            usuario.setEmail(txtEmail.getText());
+            if (!txtPassword.getText().isEmpty()) {
+                usuario.setContraseña(txtPassword.getText());
+            } else {
+                usuario.setContraseña(UsuarioActualController.getInstance().getUsuario().getContraseña());
+            }
+            usuario.setFechaRegistro(UsuarioActualController.getInstance().getUsuario().getFechaRegistro());
+            UsuarioService usuarioService = new UsuarioService();
+            usuarioService.updateUsuario(usuario);
         }
     }
 
