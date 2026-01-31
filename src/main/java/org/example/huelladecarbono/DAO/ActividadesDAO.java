@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ActividadesDAO {
 
+    //Metodo que recoge todas las actividades del sistema
     public List<Actividad> getActividades() {
         try (Session session = Connection.getInstance().getSession()) {
             return session.createQuery("FROM Actividad", Actividad.class).list();

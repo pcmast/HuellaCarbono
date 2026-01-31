@@ -45,7 +45,10 @@ public class PantallaImpactoController {
     @FXML
     private TableColumn<Huella, String> colImpacto;
 
-
+    /*
+    * Metodo que al inicializar el controladro carga tanto las columnas y el impacto mensual por defecto
+    * y configura un swict con los casos que se desee si es diario mensual etc
+    * */
     public void initialize() {
         configurarColumnas();
         cargarImpactoMensual();
@@ -70,6 +73,7 @@ public class PantallaImpactoController {
         });
     }
 
+    //Metodo que configura las columnas de la tabla
     public void configurarColumnas() {
         colFecha.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFecha().toString()));
         colActividad.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getIdActividad().getNombre()));
@@ -84,6 +88,7 @@ public class PantallaImpactoController {
         });
     }
 
+    //Metodo que carga el impacto ambiental semanal dependiendo de las huellas del usuario
     public void cargarSemanal() {
 
         HuellaService huellaService = new HuellaService();
@@ -108,6 +113,7 @@ public class PantallaImpactoController {
         lblImpactoTotal.setText(String.format("Impacto total de la semana: %.2f kg CO₂", impactoSemanal));
     }
 
+    //Metodo que carga el impacto ambiental mensual dependiendo de las huellas del usuario
     public void cargarImpactoMensual() {
 
         HuellaService huellaService = new HuellaService();
@@ -131,6 +137,7 @@ public class PantallaImpactoController {
         lblImpactoTotal.setText(String.format("Impacto total del mes: %.2f kg CO₂", impactoMensual));
     }
 
+    //Metodo que carga el impacto ambiental diario dependiendo de las huellas del usuario
     public void cargarImpactoDiario() {
 
         HuellaService huellaService = new HuellaService();
@@ -154,6 +161,7 @@ public class PantallaImpactoController {
         lblImpactoTotal.setText(String.format("Impacto total de hoy: %.2f kg CO₂", impactoDiario.doubleValue()));
     }
 
+    //Metodo que carga el impacto ambiental anual dependiendo de las huellas del usuario
     public void cargarImpactoAnual() {
 
         HuellaService huellaService = new HuellaService();

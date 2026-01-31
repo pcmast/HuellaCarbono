@@ -7,12 +7,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.huelladecarbono.HelloApplication;
 import org.example.huelladecarbono.model.Usuario;
 import org.example.huelladecarbono.services.UsuarioService;
 
+import java.io.File;
 import java.io.IOException;
 
 public class PantallaInicioSesionController {
@@ -20,6 +22,8 @@ public class PantallaInicioSesionController {
     public PasswordField txtPassword;
     public Label datosIncorrectos;
 
+    //Metodo que inicia sesion con un usuario existente en la base de datos usa usuarioService en el caso de que no exista
+    //Mostrara un mensaje de que no existe usuario con esos datos
     public void iniciarSesion(ActionEvent actionEvent) {
         UsuarioService usuarioService = new UsuarioService();
 
@@ -36,6 +40,9 @@ public class PantallaInicioSesionController {
                 Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setTitle("HuellaCarbono");
+                File imagenURL = new File("imagenes/IconoHuella.png");
+                Image image = new Image(imagenURL.toURI().toString());
+                stage.getIcons().add(image);
                 stage.setScene(scene);
                 stage.setResizable(true);
                 stage.show();
@@ -47,6 +54,7 @@ public class PantallaInicioSesionController {
         }
     }
 
+    //Metodo que abre la ventada de ir al registro de usuario
     public void irRegistro(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pantallaRegistro.fxml"));
@@ -54,9 +62,11 @@ public class PantallaInicioSesionController {
             Scene scene = null;
             scene = new Scene(fxmlLoader.load());
             stage.setTitle("HuellaCarbono");
+            File imagenURL = new File("imagenes/IconoHuella.png");
+            Image image = new Image(imagenURL.toURI().toString());
+            stage.getIcons().add(image);
             stage.setScene(scene);
             stage.setResizable(false);
-            //stage.initModality(Modality.WINDOW_MODAL); Pone la pantalla como padre
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

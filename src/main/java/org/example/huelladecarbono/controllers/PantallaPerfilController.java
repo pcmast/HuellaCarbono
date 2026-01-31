@@ -16,6 +16,10 @@ public class PantallaPerfilController {
     public PasswordField txtProbarPassword;
     private boolean usuarioActualizado = false;
 
+    /*
+    * Metodo que al inicializar el controlador coge los datos del usuarioactual y los muestra en el perfil en el caso
+    * de que se quiera modificar esos datos
+    * */
     public void initialize() {
         txtNombre.setText(UsuarioActualController.getInstance().getUsuario().getNombre());
         txtEmail.setText(UsuarioActualController.getInstance().getUsuario().getEmail());
@@ -23,6 +27,8 @@ public class PantallaPerfilController {
         fechaRegistro.setText(UsuarioActualController.getInstance().getUsuario().getFechaRegistro().toString());
     }
 
+    //Metodo que actualizara los datos de usuario del usuario registrado en ese momento en el caso de no cambiar nada
+    //dejara los datos tal cual
     public void guardarCambios(ActionEvent actionEvent) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -48,6 +54,7 @@ public class PantallaPerfilController {
         }
     }
 
+    //Metodo que abre el text  para cambiar la contraseña en el caso de que el usuario la sepa
     public void probarContra(ActionEvent actionEvent) {
         String input = txtProbarPassword.getText().trim();
         if (input.equals(UsuarioActualController.getInstance().getUsuario().getContraseña())) {

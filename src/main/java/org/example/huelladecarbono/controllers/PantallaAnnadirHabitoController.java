@@ -26,6 +26,8 @@ public class PantallaAnnadirHabitoController {
 
     private Habito habitoActual;
 
+    //Este metodo al inicializar el controlador habitila y desabilita los botones de actualizar y añadir un habito
+    //Carga los combobox de la pantalla
     public void initialize() {
         botonActualizar.setDisable(true);
         botonActualizar.setVisible(false);
@@ -54,6 +56,10 @@ public class PantallaAnnadirHabitoController {
         tipo.getItems().addAll("DIARIO", "SEMANAL", "MENSUAL");
     }
 
+    /*
+    * Metodo que active el modo de actualizar un habito
+    * y habilita el boton de actualizar y desabilitando el de añadir
+    * */
     public void modoActualizar(Habito habito) {
         this.habitoActual = habito;
 
@@ -71,6 +77,10 @@ public class PantallaAnnadirHabitoController {
         botonAnnadir.setDisable(true);
     }
 
+    /*
+    * Metodo que añade en la base de datos un habito con los datos introducidos por el usuario
+    * usando la clase HabitoService que llama a los DAO
+    * */
     public void annadirHabito(MouseEvent mouseEvent) {
         HabitoService habitoService = new HabitoService();
         Habito habito = new Habito();
@@ -99,6 +109,7 @@ public class PantallaAnnadirHabitoController {
         }
     }
 
+    //Metodo que actualiza un habito ya existente seleccionado de la tabla cogiendo los datos introducidos del usuario
     public void actualizarHabito(MouseEvent mouseEvent) {
         if (habitoActual == null) {
             return;

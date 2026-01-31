@@ -37,10 +37,9 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.StackPane?>
 <VBox prefHeight="500.0" prefWidth="800.0" stylesheets="@EstilosHuella.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.huelladecarbono.controllers.PantallaPrincipalController">
 
     <children>
@@ -66,47 +65,34 @@
                 <Menu mnemonicParsing="false" text="Análisis">
                     <items>
                         <MenuItem onAction="#verImpacto" text="Mi impacto ambiental" />
-                        <MenuItem onAction="#verRecomendaciones" text="Recomendaciones" />
                     </items>
                 </Menu>
 
             </menus>
         </MenuBar>
 
-        <StackPane VBox.vgrow="ALWAYS" styleClass="center-container">
+        <StackPane styleClass="center-container" VBox.vgrow="ALWAYS">
 
-            <VBox spacing="25"
-                  alignment="TOP_CENTER"
-                  maxWidth="650">
+            <VBox alignment="TOP_CENTER" maxWidth="650" spacing="25">
 
                 <!-- TÍTULO -->
-                <Label text="Huella de Carbono"
-                       styleClass="anchor-label"/>
+                <Label styleClass="anchor-label" text="Huella de Carbono" />
 
                 <!-- CARD BIENVENIDA -->
-                <VBox spacing="10"
-                      prefWidth="600"
-                      styleClass="card">
+                <VBox prefWidth="600" spacing="10" styleClass="card">
 
-                    <Label fx:id="lblUsuario"
-                           text="Bienvenido, Usuario"
-                           styleClass="title"/>
+                    <Label fx:id="lblUsuario" styleClass="title" text="Bienvenido, Usuario" />
 
-                    <Label fx:id="lblHuellaMes"
-                           text="Huella total este mes: -- kg CO₂"/>
+                    <Label fx:id="lblHuellaMes" text="Huella total este mes: -- kg CO₂" />
 
-                    <Label fx:id="lblCategoriaMayor"
-                           text="Categoría con mayor impacto: --"/>
+                    <Label fx:id="lblCategoriaMayor" text="Categoría con mayor impacto: --" />
 
                 </VBox>
 
                 <!-- CARD RECOMENDACIONES -->
-                <VBox spacing="10"
-                      prefWidth="500"
-                      styleClass="card">
+                <VBox prefWidth="500" spacing="10" styleClass="card">
 
-                    <Label text="Recomendaciones para ti"
-                           styleClass="title"/>
+                    <Label styleClass="title" text="Recomendaciones para ti" />
 
                     <Label fx:id="lblRecomendacion1" text="• " />
                     <Label fx:id="lblRecomendacion2" text="• " />

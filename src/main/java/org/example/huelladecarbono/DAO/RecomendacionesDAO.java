@@ -9,12 +9,14 @@ import java.util.List;
 
 public class RecomendacionesDAO {
 
+    //Metodo que coge todas las recomendaciones de la base de datos
     public List<Recomendacion> getRecomendaciones() {
         try (Session session = Connection.getInstance().getSession()) {
             return session.createQuery("FROM Recomendacion", Recomendacion.class).list();
         }
     }
 
+    //Metodo que recoge las recomendaciones de una categoria en concreto
     public List<Recomendacion> getRecomendacionesPorCategoria(Categoria categoria) {
         try (Session session = Connection.getInstance().getSession()) {
             return session.createQuery(

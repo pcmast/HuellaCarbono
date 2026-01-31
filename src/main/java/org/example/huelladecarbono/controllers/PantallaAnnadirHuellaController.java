@@ -26,6 +26,8 @@ public class PantallaAnnadirHuellaController {
 
     private Huella huellaActual;
 
+    //Este metodo al inicializar el controlador habitila y desabilita los botones de actualizar y añadir una huella
+    //Carga los combobox de la pantalla
     public void initialize() {
         botonActualizar.setDisable(true);
         botonActualizar.setVisible(false);
@@ -53,6 +55,10 @@ public class PantallaAnnadirHuellaController {
         });
     }
 
+    /*
+     * Metodo que active el modo de actualizar una huella
+     * y habilita el boton de actualizar y desabilitando el de añadir
+     * */
     public void modoActualizar(Huella huella) {
         this.huellaActual = huella;
 
@@ -70,6 +76,10 @@ public class PantallaAnnadirHuellaController {
         botonAnnadir.setDisable(true);
     }
 
+    /*
+     * Metodo que añade en la base de datos una huella con los datos introducidos por el usuario
+     * usando la clase HuellaService que llama a los DAO
+     * */
     public void annadirHuella(MouseEvent mouseEvent) {
         HuellaService huellaService = new HuellaService();
         Huella huella = new Huella();
@@ -88,7 +98,7 @@ public class PantallaAnnadirHuellaController {
             datosIntroducidos.setText("Introduce todos los datos");
         }
     }
-
+    //Metodo que actualiza un habito ya existente seleccionado de la tabla cogiendo los datos introducidos del usuario
     public void actualizarHuella(MouseEvent mouseEvent) {
         if (huellaActual == null) {
 

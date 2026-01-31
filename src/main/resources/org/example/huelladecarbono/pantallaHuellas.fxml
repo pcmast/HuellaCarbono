@@ -61,6 +61,7 @@
             <Button layoutX="237.0" layoutY="371.0" mnemonicParsing="false" onAction="#actualizarHuella" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Actualizar Huella" />
             <Button layoutX="428.0" layoutY="371.0" mnemonicParsing="false" onAction="#eliminarHuella" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Eliminar Huella" />
             <Button layoutX="265.0" layoutY="432.0" mnemonicParsing="false" onAction="#actualizar" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Refrescar" />
+            <Button layoutX="453.0" layoutY="432.0" mnemonicParsing="false" onAction="#exportarHuellasAUsuarioCS" styleClass="boton-verde-grande" stylesheets="@EstilosHuella.css" text="Exportar" />
       </children>
     </AnchorPane>
   </children>
